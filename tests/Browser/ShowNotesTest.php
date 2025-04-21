@@ -6,7 +6,7 @@ use Tests\DuskTestCase;
 use Laravel\Dusk\Browser;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
-class RegisterTest extends DuskTestCase
+class ShowNotesTest extends DuskTestCase
 {
     /**
      * A Dusk test example.
@@ -14,13 +14,11 @@ class RegisterTest extends DuskTestCase
     public function testExample(): void
     {
         $this->browse(function (Browser $browser) {
-            $browser->visit('/')
-                    ->clickLink('Register')
-                    ->type('name', 'Shintya Maylani') 
+            $browser->visit('/login') 
                     ->type('email', 'shintya1@example.com') 
                     ->type('password', 'password123') 
-                    ->type('password_confirmation', 'password123') 
-                    ->press('REGISTER');
+                    ->press('LOG IN') 
+                    ->visit('/notes');
         });
     }
 }
